@@ -2,7 +2,7 @@
 {% block content %}
 
 <head>
-  <!-- <title>SpaCify</title> -->
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,13 +16,10 @@
 <body>
   {% block navbar %}
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <!-- <a class="navbar-brand" href="#">Countries</a> -->
+
     <div class="container" style="color:#ffffff">
       <h1>Buscador de recursos</h1>
-      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <div class="container" >
+      <div class="container">
         <br>
       </div>
       <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -30,9 +27,7 @@
           <li class="nav-item active">
             <a class="nav-link" href="{{url_for('index')}}">Inicio <span class="sr-only">(current)</span></a>
           </li>
-        
         </ul>
-
       </div>
   </nav>
 
@@ -49,16 +44,14 @@
         <div>
           <p>Ingrese un texto</p>
         </div>
-        
         <form class="form-group mt-2 mt-md-0" method="POST" action="/analyze">
           <textarea name="rawtext" cols="3" rows="3" class="form-control" required="true"></textarea>
           <br />
           <button class="btn btn-lg btn-primary " type="submit">Entidades</button>
           <button class="btn btn-lg btn-primary " type="reset">Borrar</button>
-          <!-- <a class="btn btn-lg btn-primary" href="{{url_for('index')}}" role="button">Refresh</a> -->
         </form>
       </div>
-      <!-- <a class="btn btn-lg btn-primary" href="{{url_for('index')}}" role="button">Refresh</a> -->
+
     </div>
   </div>
 
@@ -69,10 +62,8 @@
         <li class="active">
           <a href="#1a" data-toggle="tab">Tokens</a>
         </li>
-       
         <li><a href="#2a" data-toggle="tab">Entidades </a>
         </li>
-       
       </ul>
 
       <div class="tab-content clearfix">
@@ -91,9 +82,11 @@
       </div>
 
     </div>
-
-    
-    <h1>busquedas de la entidad</h1>
+    <br />
+    <br />
+    <h1>Busquedas de la entidad</h1>
+    <br />
+    <br />
     <div class="container">
       <div class="row">
         <div class="col">
@@ -105,7 +98,7 @@
                 <li>{{item}}</li>
                 {% endfor %}
               </h3>
-      
+
             </div>
           </div>
         </div>
@@ -114,40 +107,30 @@
           <div class="jumbotron">
             <div class="tab-pane active">
               <h3>
-                
-                  <img src='http://commons.wikimedia.org/wiki/Special:FilePath/Cristiano_Ronaldo_2018.jpg?width=300' >
+                {% if result_img!= undefined %}
               
-                
+                <img src={{result_img[0]}}>
+               
+                {% endif %}
               </h3>
-      
             </div>
           </div>
         </div>
-        
       </div>
     </div>
-  
+
   </div>
   <!-- End of Main Container -->
   <br />
   <br />
 
   <div class="container">
-  <h3>Informacion de la palabra (JSON) </h3>
-  <h3>
-    <pre>{{result_json }}</pre>
+    <h3>Informacion de la palabra (JSON) </h3>
+    <h3>
+      <pre>{{result_json }}</pre>
+    </h3>
+  </div>
 
-  </h3>
-</div>
-
-
-
-  <!-- <span class="badge badge-success">2</span>
-<span class="badge badge-warning">4</span>
-<span class="badge badge-red">6</span>
-<span class="badge badge-info">8</span>
-<span class="badge badge-inverse">10</span>
-  -->
 </body>
 {% endblock %}
 
